@@ -18,6 +18,7 @@
     <link href="{{ asset('css/select2.min.css')}}" rel="stylesheet">
     <link href="{{ asset('css/timepicker.min.css')}}" rel="stylesheet">
     <link href="{{ asset('css/numpad.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/modern-adminlte.css')}}" rel="stylesheet">
     <link rel="favicon" sizes="32x32" href="/favicon-32x32.png">
     <link rel="favicon" sizes="16x16" href="/favicon-16x16.png">
     <link rel="icon" type="image/png" href="/favicon.png">
@@ -144,6 +145,7 @@ $(document).ready(function() {
 </script>
 
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     @yield('script')
     <style type="text/css">
        li  {
@@ -276,9 +278,6 @@ $(document).ready(function() {
 
 
 @yield('content')
-
-
-
 </body>
 
 </html>

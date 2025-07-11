@@ -75,6 +75,41 @@
                 </div>
             </div>
         </div><!--/.row-->
+        <!-- End of summary cards row -->
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card chart-container">
+                    <div class="card-header">Appointments Over Time</div>
+                    <div class="card-body">
+                        <canvas id="appointmentsChart" height="180"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card chart-container">
+                    <div class="card-header">Revenue (Monthly)</div>
+                    <div class="card-body">
+                        <canvas id="revenueChart" height="180"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card chart-container">
+                    <div class="card-header">Patient Types</div>
+                    <div class="card-body">
+                        <canvas id="patientsPieChart" height="180"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card chart-container">
+                    <div class="card-header">Doctor Activity</div>
+                    <div class="card-body">
+                        <canvas id="doctorBarChart" height="180"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
         
         <div class="row">
             
@@ -83,7 +118,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Today's Appointment</div>
                     <div class="panel-body">
-                         <table id="table1" class="display table table-bordered table-condensed table-hover" cellspacing="0" width="100%">
+                         <table id="table1" class="table" cellspacing="0" width="100%">
                             <thead>
                                <tr>
                                 <th>#</th>
@@ -125,7 +160,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Today's Collection</div>
                     <div class="panel-body">
-                        <table id="table" class="display table table-bordered table-condensed" cellspacing="0" width="100%">
+                        <table id="table" class="table table-bordered table-striped table-hover" cellspacing="0" width="100%">
                             <thead>
                                <tr>
                                <th>#</th>
@@ -169,7 +204,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Today's OPD</div>
                     <div class="panel-body">
-                         <table id="example" class="display table table-bordered table-condensed table-hover" cellspacing="0" width="100%">
+                         <table id="example" class="table table-bordered table-striped table-hover" cellspacing="0" width="100%">
                             <thead>
                                <tr>
                                 <th>#</th>
@@ -202,7 +237,10 @@
 
         </div><!--/.row-->
         </div>
-        
+        <!-- End of summary cards row -->
+
+        <!-- Move chart containers here, below the cards -->
+       
         <!-- <div class="row">
             <div class="col-xs-6 col-md-3">
                 <div class="panel panel-default">
@@ -395,4 +433,87 @@
 
         });
     </script>
+@endsection
+@section('script')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Appointments Over Time (Line Chart)
+    if (document.getElementById('appointmentsChart')) {
+        new Chart(document.getElementById('appointmentsChart'), {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                datasets: [{
+                    label: 'Appointments',
+                    data: [120, 150, 170, 140, 180, 200, 220],
+                    borderColor: '#1890ff',
+                    backgroundColor: 'rgba(24,144,255,0.08)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+    }
+    // Revenue (Bar Chart)
+    if (document.getElementById('revenueChart')) {
+        new Chart(document.getElementById('revenueChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                datasets: [{
+                    label: 'Revenue',
+                    data: [5000, 7000, 8000, 6000, 9000, 11000, 12000],
+                    backgroundColor: '#52c41a',
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+    }
+    // Patient Types (Pie Chart)
+    if (document.getElementById('patientsPieChart')) {
+        new Chart(document.getElementById('patientsPieChart'), {
+            type: 'pie',
+            data: {
+                labels: ['New', 'Returning', 'Referral'],
+                datasets: [{
+                    data: [60, 30, 10],
+                    backgroundColor: ['#1890ff', '#faad14', '#f5222d']
+                }]
+            },
+            options: {
+                plugins: { legend: { position: 'bottom' } },
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    }
+    // Doctor Activity (Bar Chart)
+    if (document.getElementById('doctorBarChart')) {
+        new Chart(document.getElementById('doctorBarChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Dr. Smith', 'Dr. Lee', 'Dr. Patel', 'Dr. Kim'],
+                datasets: [{
+                    label: 'Patients Seen',
+                    data: [40, 55, 30, 45],
+                    backgroundColor: '#722ed1',
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+    }
+});
+</script>
 @endsection

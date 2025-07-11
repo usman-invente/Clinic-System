@@ -1,0 +1,290 @@
+/* Modern AdminLTE-Inspired CSS Enhancements */
+
+body {
+    background: #f4f6f9;
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    color: #222;
+}
+
+.navbar {
+    background: #343a40;
+    border: none;
+    border-radius: 0;
+    min-height: 56px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+.navbar .navbar-brand, .navbar .nav > li > a {
+    color: #fff !important;
+    font-weight: 500;
+}
+.navbar .navbar-brand i {
+    margin-right: 6px;
+}
+
+.sidebar {
+    background: #23272b;
+    min-height: 100vh;
+    padding-top: 20px;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.03);
+    width: 220px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+.sidebar .nav > li > a {
+    color: #b8c7ce;
+    padding: 12px 20px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    transition: background 0.2s;
+}
+.sidebar .nav > li.active > a, .sidebar .nav > li > a:hover {
+    background: #007bff;
+    color: #fff;
+}
+
+.main-content {
+    margin-left: 240px;
+    padding: 30px 40px 40px 40px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    padding: 24px;
+    margin-bottom: 24px;
+    border: 1px solid #e3e6f0;
+}
+.card-header {
+    background: #f8f9fc;
+    border-bottom: 1px solid #e3e6f0;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 12px 24px;
+    border-radius: 8px 8px 0 0;
+}
+.card-body {
+    padding: 16px 0 0 0;
+}
+
+.btn, .btn-primary {
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+.btn-primary {
+    background: #007bff;
+    border: none;
+}
+.btn-primary:hover {
+    background: #0056b3;
+}
+.btn-success {
+    background: #28a745;
+    border: none;
+}
+.btn-success:hover {
+    background: #218838;
+}
+.btn-warning {
+    background: #ffc107;
+    border: none;
+    color: #212529;
+}
+.btn-warning:hover {
+    background: #e0a800;
+}
+
+/* --- Enhanced Ant Design-Inspired Table Styles --- */
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 15px;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    margin-bottom: 24px;
+    transition: box-shadow 0.2s;
+}
+.table th {
+    background: linear-gradient(90deg, #f5f7fa 0%, #e9eff5 100%);
+    color: #1a1a1a;
+    font-weight: 700;
+    border-bottom: 2px solid #e0e6ed;
+    padding: 16px 18px;
+    font-size: 1.05em;
+    letter-spacing: 0.02em;
+    transition: background 0.2s;
+}
+.table td {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 14px 18px;
+    vertical-align: middle;
+    background: #fff;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f7fafd;
+}
+.table-hover tbody tr:hover {
+    background: #e6f7ff;
+    box-shadow: 0 2px 8px rgba(24,144,255,0.08);
+    z-index: 2;
+    position: relative;
+}
+.table tbody tr.selected, .table tbody tr.active {
+    background: #bae7ff !important;
+    box-shadow: 0 2px 12px rgba(24,144,255,0.12);
+}
+.table thead th:first-child {
+    border-top-left-radius: 10px;
+}
+.table thead th:last-child {
+    border-top-right-radius: 10px;
+}
+.table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+.table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+.table td, .table th {
+    border-right: 1px solid #f0f0f0;
+}
+.table td:last-child, .table th:last-child {
+    border-right: none;
+}
+.table .ant-table-cell {
+    padding: 14px 18px;
+}
+
+/* Dashboard widgets */
+.widget {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    padding: 20px;
+    margin-bottom: 24px;
+    border-left: 4px solid #007bff;
+}
+.widget .widget-icon {
+    font-size: 2.5rem;
+    margin-right: 18px;
+    color: #007bff;
+}
+.widget .widget-content {
+    flex: 1;
+}
+.widget .widget-title {
+    font-size: 1.1rem;
+    color: #6c757d;
+}
+.widget .widget-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #343a40;
+}
+
+/* Chart area */
+.chart-container {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+/* --- Modern Pagination Styles --- */
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px 0 0 0;
+    margin: 0;
+    list-style: none;
+    background: none;
+}
+.pagination li {
+    margin: 0 2px;
+}
+.pagination li a, .pagination li span {
+    display: inline-block;
+    min-width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid #e0e6ed;
+    background: #fff;
+    color: #222;
+    font-weight: 500;
+    font-size: 1em;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+    cursor: pointer;
+    padding: 0 12px;
+}
+.pagination li.active a, .pagination li.active span {
+    background: #fff;
+    color: #1890ff;
+    border: 1.5px solid #1890ff;
+    font-weight: 600;
+}
+.pagination li a:hover, .pagination li span:hover {
+    background: #e6f7ff;
+    color: #1890ff;
+    border-color: #91d5ff;
+}
+.pagination li.disabled a, .pagination li.disabled span {
+    color: #bfbfbf;
+    background: #fafafa;
+    border: 1px solid #f0f0f0;
+    cursor: not-allowed;
+}
+
+/* --- Remove dark black lines from tables and pagination --- */
+.table,
+.table th,
+.table td {
+    border-color: #f0f0f0 !important;
+}
+.pagination li a, .pagination li span {
+    border-color: #e0e6ed !important;
+}
+.pagination li.active a, .pagination li.active span {
+    border-color: #1890ff !important;
+}
+
+/* --- Consistent Chart Sizing for All Charts --- */
+.card .chart-container {
+    min-height: 220px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card .chart-container canvas {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Responsive sidebar */
+@media (max-width: 991px) {
+    .main-content {
+        margin-left: 0;
+        padding: 16px;
+    }
+    .sidebar {
+        min-height: auto;
+        position: static;
+        width: 100%;
+        box-shadow: none;
+    }
+} 
