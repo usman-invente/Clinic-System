@@ -275,6 +275,59 @@ body {
     margin: 0 auto;
 }
 
+/* --- Ant Design Style Date Range Picker --- */
+.date-range-filter-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+.date-range-filter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 24px 0 16px 0;
+    padding: 12px 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    width: fit-content;
+}
+.ant-range-picker-input {
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.2s, box-shadow 0.2s;
+    background: #fafafa;
+}
+.ant-range-picker-input:focus {
+    border: 1.5px solid #1890ff;
+    box-shadow: 0 0 0 2px rgba(24,144,255,0.12);
+    background: #fff;
+}
+.ant-range-separator {
+    color: #bfbfbf;
+    font-size: 18px;
+    margin: 0 4px;
+}
+.ant-range-picker-btn {
+    background: #1890ff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 18px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    margin-left: 8px;
+}
+.ant-range-picker-btn:hover {
+    background: #40a9ff;
+}
+
 /* Responsive sidebar */
 @media (max-width: 991px) {
     .main-content {

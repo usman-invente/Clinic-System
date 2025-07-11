@@ -76,6 +76,15 @@
             </div>
         </div><!--/.row-->
         <!-- End of summary cards row -->
+        <!-- Date Range Filter (Ant Design style) -->
+        <div class="date-range-filter-wrapper">
+            <div class="date-range-filter">
+                <input type="date" class="ant-range-picker-input" placeholder="Start date">
+                <span class="ant-range-separator">—</span>
+                <input type="date" class="ant-range-picker-input" placeholder="End date">
+                <button class="ant-range-picker-btn">Filter</button>
+            </div>
+        </div>
         <div class="row">
             <div class="col-lg-6">
                 <div class="card chart-container">
