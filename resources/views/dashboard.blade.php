@@ -10,11 +10,15 @@
         </div>
         <!--/.row-->
        
-        <div class="row">
-            <div class="col-lg-12">
-                <h2 class="page-header">Dashboard</h2>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+            <h2 class="page-header" style="margin: 0;">Dashboard</h2>
+            <div class="date-range-filter" style="display: flex; align-items: center;">
+                <input type="date" class="ant-range-picker-input" placeholder="Start date" style="margin-right: 0.5rem;">
+                <span class="ant-range-separator" style="margin: 0 0.5rem;">—</span>
+                <input type="date" class="ant-range-picker-input" placeholder="End date" style="margin-right: 0.5rem;">
+                <button class="ant-range-picker-btn">Filter</button>
             </div>
-        </div><!--/.row-->
+        </div>
          @if ($message = Session::get('success'))
             <div class="alert alert-success alert-block">
                 <button type="button" class="close" data-dismiss="alert">×</button> 
@@ -77,41 +81,33 @@
         </div><!--/.row-->
         <!-- End of summary cards row -->
         <!-- Date Range Filter (Ant Design style) -->
-        <div class="date-range-filter-wrapper">
-            <div class="date-range-filter">
-                <input type="date" class="ant-range-picker-input" placeholder="Start date">
-                <span class="ant-range-separator">—</span>
-                <input type="date" class="ant-range-picker-input" placeholder="End date">
-                <button class="ant-range-picker-btn">Filter</button>
-            </div>
-        </div>
         <div class="row">
-            <div class="col-lg-6">
-                <div class="card chart-container">
+            <div class="col-lg-6 mb-4">
+                <div class="card">
                     <div class="card-header">Appointments Over Time</div>
                     <div class="card-body">
                         <canvas id="appointmentsChart" height="180"></canvas>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="card chart-container">
+            <div class="col-lg-6 mb-4">
+                <div class="card">
                     <div class="card-header">Revenue (Monthly)</div>
                     <div class="card-body">
                         <canvas id="revenueChart" height="180"></canvas>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="card chart-container">
+            <div class="col-lg-6 mb-4">
+                <div class="card">
                     <div class="card-header">Patient Types</div>
                     <div class="card-body">
                         <canvas id="patientsPieChart" height="180"></canvas>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="card chart-container">
+            <div class="col-lg-6 mb-4">
+                <div class="card">
                     <div class="card-header">Doctor Activity</div>
                     <div class="card-body">
                         <canvas id="doctorBarChart" height="180"></canvas>
@@ -124,51 +120,53 @@
             
             <!-- Appointment for today -->
              <div class="col-lg-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Today's Appointment</div>
-                    <div class="panel-body">
-                         <table id="table1" class="table" cellspacing="0" width="100%">
-                            <thead>
-                               <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Patient</th>
-                                <th>Doctor</th>
-                                <th>Description</th>
-                                <th>Time</th>
-                                <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php $i=1;?>
-                                @foreach($appointments as $appointment)
-                                <tr>
-                                    <td>{{$i++}}</td>
-                                    <td>{{$appointment->name}}</td>
-                                    <td>{{$appointment->patient->first_name}} {{$appointment->patient->last_name}}</td>
-                                    <td>{{$appointment->doctor->employee->first_name}} {{$appointment->doctor->employee->middle_name}} {{$appointment->doctor->employee->last_name}}</td>
-                                    <td>{{$appointment->description}}</td>
-                                    <td>{{$appointment->time}}</td>
-                                    <td>
-                                     @if($appointment->status)
-                                    <a class="btn-sm btn-success" href="{{ route('appointment.edit',$appointment->id) }}"><span class=" glyphicon glyphicon-ok"></span> Complete</a>    
-                                    @else
-                                    <a class="btn-sm btn-warning" href="{{ route('appointment.edit',$appointment->id) }}"><span class=" glyphicon glyphicon-refresh"> </span> Pending</a>
-                                    @endif
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>                 
-                        </table>
+                <div class="card">
+                    <div class="card-header">Today's Appointment</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="table1" class="table" cellspacing="0" width="100%">
+                                <thead>
+                                   <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Patient</th>
+                                    <th>Doctor</th>
+                                    <th>Description</th>
+                                    <th>Time</th>
+                                    <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $i=1;?>
+                                    @foreach($appointments as $appointment)
+                                    <tr>
+                                        <td>{{$i++}}</td>
+                                        <td>{{$appointment->name}}</td>
+                                        <td>{{$appointment->patient->first_name}} {{$appointment->patient->last_name}}</td>
+                                        <td>{{$appointment->doctor->employee->first_name}} {{$appointment->doctor->employee->middle_name}} {{$appointment->doctor->employee->last_name}}</td>
+                                        <td>{{$appointment->description}}</td>
+                                        <td>{{$appointment->time}}</td>
+                                        <td>
+                                         @if($appointment->status)
+                                        <a class="btn-sm btn-success" href="{{ route('appointment.edit',$appointment->id) }}"><span class=" glyphicon glyphicon-ok"></span> Complete</a>    
+                                        @else
+                                        <a class="btn-sm btn-warning" href="{{ route('appointment.edit',$appointment->id) }}"><span class=" glyphicon glyphicon-refresh"> </span> Pending</a>
+                                        @endif
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>                 
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
             <!-- Appointmet table ends -->
             <div class="col-lg-12">
             <!-- Today invoice collection -->
-                <div class="panel panel-default">
-                    <div class="panel-heading">Today's Collection</div>
-                    <div class="panel-body">
+                <div class="card">
+                    <div class="card-header">Today's Collection</div>
+                    <div class="card-body">
                         <table id="table" class="table table-bordered table-striped table-hover" cellspacing="0" width="100%">
                             <thead>
                                <tr>
@@ -210,9 +208,9 @@
             <!-- Today collection ends -->
             <!-- opd table -->
             <div class="col-lg-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Today's OPD</div>
-                    <div class="panel-body">
+                <div class="card">
+                    <div class="card-header">Today's OPD</div>
+                    <div class="card-body">
                          <table id="example" class="table table-bordered table-striped table-hover" cellspacing="0" width="100%">
                             <thead>
                                <tr>

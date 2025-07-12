@@ -328,6 +328,21 @@ body {
     background: #40a9ff;
 }
 
+
+.card .card-body {
+    padding: 1rem 1.25rem;
+}
+.table-responsive {
+    width: 100%;
+    margin-bottom: 0;
+}
+.table {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+
+
 /* Responsive sidebar */
 @media (max-width: 991px) {
     .main-content {
